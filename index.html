@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Intervalos de Confianza</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="bg-animado"></div>
+
+    <h1 class="titulo">Calculadora de Intervalos de Confianza</h1>
+    <p class="subtexto"></p>
+
+    <div class="contenedor holografico">
+
+        <div class="panel-izquierdo">
+
+            <h2 class="panel-titulo">Datos de la muestra</h2>
+
+            <label>Tamaño de la muestra (n):</label>
+            <input id="n" type="number" placeholder="Ej: 40">
+
+            <label>Media muestral (x̄):</label>
+            <input id="media" type="number" step="0.01" placeholder="Ej: 72.5">
+
+            <label>Desviación estándar (σ):</label>
+            <input id="desviacion" type="number" step="0.01" placeholder="Ej: 8">
+
+            <label>Tipo de desviación:</label>
+            <select id="tipo">
+                <option value="poblacional">Conozco σ (poblacional)</option>
+                <option value="muestral">Solo tengo s (muestral)</option>
+            </select>
+
+            <label>Nivel de confianza:</label>
+            <select id="confianza">
+                <option value="90">90%</option>
+                <option value="95" selected>95%</option>
+                <option value="99">99%</option>
+            </select>
+
+            <div class="botones">
+                <button class="btn btn-calcular" onclick="calcular()">Calcular Intervalo</button>
+                <button class="btn btn-limpiar" onclick="limpiar()">Limpiar</button>
+            </div>
+
+            <div id="resultado" class="resultado"></div>
+
+        </div>
+
+        <div class="panel-derecho">
+            <h2 class="panel-titulo">Visualización holográfica</h2>
+            <canvas id="grafica"></canvas>
+            <p class="nota-grafica">
+                El área verde muestra el intervalo de confianza alrededor de la media.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
